@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use DateTime;
 
 class TodolistsTableSeeder extends Seeder
 {
@@ -16,7 +18,7 @@ class TodolistsTableSeeder extends Seeder
         $bodys = ['aaaa','bbbb','cccc'];
         foreach ($bodys as $body) {
             DB::table('todolists')->insert([
-                'body' => $body,
+                'content' => $body,
                 'created_at' => new datetime(),
                 'updated_at' => new datetime()
         ]);

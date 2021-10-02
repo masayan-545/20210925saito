@@ -311,7 +311,7 @@
       <div class="todo">
         <form action="/todo/create" method="post" class="flex between mb-30">
           @csrf
-          <input type="hidden" name="_token" value="9d3l4RlUEyDj6KrWtYSfw5VE6mOz2lIZIp194CzV">
+          <input type="hidden" name="_token" value="{{$form->created_at}}">
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
         </form>
@@ -324,20 +324,20 @@
           </tr>
           <tr>
             <td>2021-09-26 05:59:28</td>
-            <form action="http://young-woodland-12937.herokuapp.com/todo/update?id=9904" method="post">
+            <form action="/update" method="post">
               @csrf
-              <input type="hidden" name="_token" value="9d3l4RlUEyDj6KrWtYSfw5VE6mOz2lIZIp194CzV">
+              <input type="hidden" name="_token" value="{{$form->update_at}}">
               <td>
-                <input type="text" class="input-update" value="123" name="content" />
+                <input type="text" class="input-update" value="{{$form->content}}" name="content" />
               </td>
               <td>
                 <button class="button-update">更新</button>
               </td>
             </form>
             <td>
-              <form action="http://young-woodland-12937.herokuapp.com/todo/delete?id=9904" method="post">
+              <form action="/delete" method="post">
                 @csrf
-                <input type="hidden" name="_token" value="9d3l4RlUEyDj6KrWtYSfw5VE6mOz2lIZIp194CzV">
+                <input type="hidden" name="_token" value="{{$form->content}}">
                 <button class="button-delete">削除</button>
               </form>
             </td>

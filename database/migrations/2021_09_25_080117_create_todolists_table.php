@@ -15,7 +15,7 @@ class CreateTodolistsTable extends Migration
     {
         Schema::create('todolists', function (Blueprint $table) {
             $table->id();
-            $table->string('content',191)->nullable(false)->change();
+            $table->string('content',191);
             $table->timestamps();
         });
     }
