@@ -14,10 +14,9 @@ class CreateTodolistsTable extends Migration
     public function up()
     {
         Schema::create('todolists', function (Blueprint $table) {
-            $table->bigInteger('id', 20);
-            $table->ipAddress('content', 191)->nullable(false)->change();
+            $table->id();
+            $table->string('content',191)->nullable(false)->change();
             $table->timestamps();
-            $table->primary(['id'], 'DUMMY_NAME');
         });
     }
 

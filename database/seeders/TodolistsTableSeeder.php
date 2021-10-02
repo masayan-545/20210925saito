@@ -13,6 +13,13 @@ class TodolistsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $bodys = ['aaaa','bbbb','cccc'];
+        foreach ($bodys as $body) {
+            DB::table('todolists')->insert([
+                'body' => $body,
+                'created_at' => new datetime(),
+                'updated_at' => new datetime()
+        ]);
+        }
     }
 }
