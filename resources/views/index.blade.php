@@ -311,7 +311,7 @@
       <div class="todo">
         <form action="/todo/create" method="post" class="flex between mb-30">
           @csrf
-          <input type="hidden" name="_token" value="{{$form->created_at}}">
+          <input type="hidden" name="_token">
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
         </form>
@@ -323,12 +323,12 @@
             <th>削除</th>
           </tr>
           <tr>
-            <td>2021-09-26 05:59:28</td>
+            <td>{{$form ?? ''->created_at}}</td>
             <form action="/update" method="post">
               @csrf
-              <input type="hidden" name="_token" value="{{$form->update_at}}">
+              <input type="hidden" name="_token">
               <td>
-                <input type="text" class="input-update" value="{{$form->content}}" name="content" />
+                <input type="text" class="input-update" value="{{$form ?? ''->content}}" name="content" />
               </td>
               <td>
                 <button class="button-update">更新</button>
@@ -337,7 +337,7 @@
             <td>
               <form action="/delete" method="post">
                 @csrf
-                <input type="hidden" name="_token" value="{{$form->content}}">
+                <input type="hidden" name="_token" value="{{$form ?? ''->content}}">
                 <button class="button-delete">削除</button>
               </form>
             </td>
