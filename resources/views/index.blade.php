@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>COACHTECH</title>
-  @extends('layouts.default')
   <style>
     html,
     body,
@@ -322,13 +321,14 @@
             <th>更新</th>
             <th>削除</th>
           </tr>
+          @foreach ($todos as $todo)
           <tr>
-            <td>{{$form ?? ''->created_at}}</td>
+            <td>{{$form->created_at??"}}</td>
             <form action="/update" method="post">
               @csrf
               <input type="hidden" name="_token">
               <td>
-                <input type="text" class="input-update" value="{{$form ?? ''->content}}" name="content" />
+                <input type="text" class="input-update" value="{{$todo->content}}" name="content" />
               </td>
               <td>
                 <button class="button-update">更新</button>
@@ -337,7 +337,7 @@
             <td>
               <form action="/delete" method="post">
                 @csrf
-                <input type="hidden" name="_token" value="{{$form ?? ''->content}}">
+                <input type="hidden" name="_token" value="{{$todo->content}}">
                 <button class="button-delete">削除</button>
               </form>
             </td>
