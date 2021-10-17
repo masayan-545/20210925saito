@@ -324,11 +324,11 @@
           @foreach ($todos as $todo)
           <tr>
             <td>
-              <input type="hidden" value="{{$todo->create}}" name="days"/>
+              {{ $todo->created_at }}
             </td>
             <form action="/update" method="post">
               @csrf
-              <input type="hidden" name="_token" value="{{$todo->create}}">
+              <input type="hidden" name="_token" value="{{$todo->update}}">
               <td>
                 <input type="text" class="input-update" value="{{$todo->content}}" name="content" />
               </td>
