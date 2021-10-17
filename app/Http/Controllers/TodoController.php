@@ -23,6 +23,7 @@ class TodoController extends Controller
     {
         $this->validate($request, Todolist::$rules);
         $form = $request->all();
+        unset($form["_token"]);
         Todolist::create($form);
         return redirect('/');
     }

@@ -328,7 +328,6 @@
             </td>
             <form action="/update" method="post">
               @csrf
-              <input type="hidden" name="_token" value="{{$todo->update}}">
               <td>
                 <input type="text" class="input-update" value="{{$todo->content}}" name="content" />
               </td>
